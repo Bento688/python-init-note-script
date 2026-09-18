@@ -11,16 +11,19 @@ from pathlib import Path
 NOTES_FILE_NAME = "NOTES.md"
 
 note_template_content = """
-
 # {date}
 
 ---
 
-## TODAY'S OBJECTIVES
+## TODAY'S TASKS
 
 ---
 
 ## IMPORTANT NOTES
+
+---
+
+## THINGS DONE TODAY
 
 """
 
