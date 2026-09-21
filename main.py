@@ -27,6 +27,7 @@ note_template_content = """
 
 """
 
+
 def main():
 
     # get the day of today
@@ -38,10 +39,14 @@ def main():
     month_dir_string = today.strftime("%Y-%B").lower()
 
     # ensure that today's directory exist
-    absolute_day_dir = Path("/Users/benedictestefanhalkin/Developer/lndata/carbon64/md-notes") / month_dir_string / today_date_string
+    absolute_day_dir = (
+        Path("/Users/benedictestefanhalkin/Developer/lndata/carbon64/md-notes")
+        / month_dir_string
+        / today_date_string
+    )
 
     print(f"Target Directory: {absolute_day_dir}")
-        
+
     # if directory exisdt
     if absolute_day_dir.is_dir():
         # ensure NOTES.md exist and is not empty
@@ -65,10 +70,10 @@ def main():
 
 
 def create_notes_file(absolute_day_dir: Path, day_string: str):
-        notes_dir = absolute_day_dir / NOTES_FILE_NAME
+    notes_dir = absolute_day_dir / NOTES_FILE_NAME
 
-        with open(notes_dir, "w", encoding="utf-8") as file:
-            file.write(note_template_content.format(date=day_string))
+    with open(notes_dir, "w", encoding="utf-8") as file:
+        file.write(note_template_content.format(date=day_string))
 
 
 def ensure_notes_exist(absolute_day_dir: Path):
@@ -77,6 +82,7 @@ def ensure_notes_exist(absolute_day_dir: Path):
         return True
     else:
         return False
+
 
 # if running the file directly
 if __name__ == "__main__":
